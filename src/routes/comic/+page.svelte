@@ -60,7 +60,7 @@
 
 <div>
 	<section id="joke">
-		<img bind:this={img} id="img" src="/" alt="" />
+		<img bind:this={img} id="img" alt="" />
 		<p bind:this={title} id="title" class="text" />
 		<p bind:this={timeTillNow} id="timeTillNow" class="text" />
 		<p bind:this={date} id="date" class="text" />
