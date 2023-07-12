@@ -1,5 +1,13 @@
+<script lang="ts">
+	import Header from '../Header.svelte';
+</script>
+
+<svelte:head>
+	<script src="https://kit.fontawesome.com/dbee5ef51c.js" crossorigin="anonymous"></script>
+</svelte:head>
+
 <div>
-	<img id="profile-img" src="/personal.jpg" alt="Personal" />
+	<Header />
 	<p class="text">I would love to hear from you</p>
 	<p class="text">you can contact me in the following platforms</p>
 	<div class="icons">
@@ -14,16 +22,6 @@
 </div>
 
 <style>
-	#profile-img {
-		width: 320px;
-		height: 320px;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 20px;
-		margin-bottom: 40px;
-		border-radius: 50%;
-	}
 	div {
 		background-color: #51a878;
 	}
@@ -34,16 +32,7 @@
 		padding: 10px;
 		font-family: 'Caveat', cursive;
 	}
-	img {
-		width: 320px;
-		height: 320px;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 20px;
-		margin-bottom: 40px;
-		border-radius: 50%;
-	}
+
 	.icons {
 		font-size: larger;
 		margin: auto;

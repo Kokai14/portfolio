@@ -1,5 +1,9 @@
+<script lang="ts">
+	import Header from '../Header.svelte';
+</script>
+
 <div>
-	<img id="profile-img" src="/personal.jpg" alt="Personal" />
+	<Header />
 	<div class="ping-pong">
 		<div>
 			<p class="text">I have started playing tabel tennis</p>
@@ -17,16 +21,6 @@
 <style>
 	div {
 		background-color: #51a878;
-	}
-	img {
-		width: 320px;
-		height: 320px;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 20px;
-		margin-bottom: 40px;
-		border-radius: 50%;
 	}
 	.ping-pong {
 		display: flex;

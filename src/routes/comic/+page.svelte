@@ -18,35 +18,29 @@
 	let title: HTMLParagraphElement;
 	let timeTillNow: HTMLParagraphElement;
 	let date: HTMLParagraphElement;
-	onMount(() => {
-		const main = async (): Promise<void> => {
-			async function fetchXKCD() {
-				const urlParams = new URLSearchParams();
-				urlParams.append('email', 'k.khaddour@innopolis.university');
-				try {
-					const response = await fetch(
-						'https://fwd.innopolis.university/api/hw2?' + urlParams.toString()
-					);
-					const data = await response.json();
-					return data;
-				} catch (error) {
-					console.error('Error fetching comic identifier:', error);
-					return null;
-				}
+	onMount(async () => {
+		async function fetchXKCD(): Promise<string | null> {
+			const urlParams = new URLSearchParams();
+			urlParams.append('email', 'k.khaddour@innopolis.university');
+			try {
+				const response = await fetch(
+					'https://fwd.innopolis.university/api/hw2?' + urlParams.toString()
+				);
+				const data: string = await response.json();
+				return data;
+			} catch (error) {
+				console.error('Error fetching comic identifier:', error);
+				return null;
 			}
+		}
 
-			async function fetchId(id: string) {
-				try {
-					const response = await fetch(`https://fwd.innopolis.university/api/comic?id=${id}`);
-					const data = await response.json();
-					return data;
-				} catch (error) {
-					console.error('Error fetching comic identifier:', error);
-				}
+		try {
+			const id: string | null = await fetchXKCD();
+			if (id == null) {
+				throw Error('Not able to fetch ID');
 			}
-			const id = await fetchXKCD();
-			const _data: Data = await fetchId(id);
-
+			const response = await fetch(`https://fwd.innopolis.university/api/comic?id=${id}`);
+			const _data: Data = await response.json();
 			img.src = _data.img;
 			img.alt = _data.alt;
 			title.textContent = _data.safe_title;
@@ -58,8 +52,9 @@
 				day: 'numeric'
 			};
 			date.textContent = event.toLocaleDateString('en-DE', options);
-		};
-		main();
+		} catch (error) {
+			console.error('Error fetching comic identifier:', error);
+		}
 	});
 </script>
 

@@ -1,5 +1,9 @@
+<script lang="ts">
+	import Header from '../Header.svelte';
+</script>
+
 <div>
-	<img id="profile-img" src="/personal.jpg" alt="Personal" />
+	<Header />
 	<div class="university">
 		<div>
 			<p class="text">I am a first year student at innopolis university.</p>
@@ -15,16 +19,6 @@
 </div>
 
 <style>
-	#profile-img {
-		width: 320px;
-		height: 320px;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 20px;
-		margin-bottom: 40px;
-		border-radius: 50%;
-	}
 	#univerity-img {
 		width: 500px;
 		height: 350px;
